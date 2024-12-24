@@ -1,0 +1,77 @@
+import * as React from "react"
+
+const Header = (props) => {
+    console.log(props)
+    return (
+        <div>
+
+            <h1>Course name = {props.course}</h1>
+        </div>
+    )
+}
+const Part = (props) => {
+    return (
+        <div>
+            <p>{props.content} | Number of excersises: {props.number}</p>
+        </div>
+    )
+}
+
+const Content = (props) => {
+    //const contentandnumber = [
+    //    { name: 'Fundamentals of React', number: 10, },
+    //    { name: 'Using props to pass data', number: 7 },
+    //    { name: 'State of component', number: 14 }
+    //]
+    return (
+        <div>
+            {/*<Part content={contentandnumber[0].name} number={contentandnumber[0].number}></Part>*/}
+            {/*<Part content={contentandnumber[1].name} number={contentandnumber[1].number}></Part>*/}
+            {/*<Part content={contentandnumber[2].name} number={contentandnumber[2].number}></Part>*/}
+            <p>{props.content}</p>
+        </div>
+    )
+}
+const Total = (props) => {
+    console.log(props)
+    return (
+        <div>
+
+            <p>{props.total}</p>
+        </div>
+    )
+}
+
+const App = () => {
+    const course = 'Half Stack application development'
+    const parts = [
+        {
+        name: 'Fundamentals of React',
+        exercises: 10
+    },
+    {
+        name: 'Using props to pass data',
+        exercises: 7
+        },
+        {
+        name: 'State of a component',
+        exercises: 14
+    }
+    ]
+    console.log(parts.forEach)
+    return (
+        <div>
+            <Header course={course}></Header>
+            <Part content={parts[0].name} number={parts[0].exercises}></Part>
+            <Part content={parts[1].name} number={parts[1].exercises}></Part>
+            <Part content={parts[2].name} number={parts[2].exercises}></Part>
+            <Content content={"what did we do?"}></Content>
+            <Total total={10 + 7 + 14}></Total>
+        </div>
+    )
+}
+
+export default App
+
+
+
