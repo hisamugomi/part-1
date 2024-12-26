@@ -1,0 +1,41 @@
+import { useState } from 'react'
+
+const Button = ({ clickfunc, text }) => <button onClick={clickfunc}>{text}</button>
+
+const Display = ({ text, value}) => <div>{text} {value}</div>
+
+const App = () => {
+    // save clicks of each button to its own state
+    const [good, setGood] = useState(0)
+    const [neutral, setNeutral] = useState(0)
+    const [bad, setBad] = useState(0)
+
+    const setGoodraiting = () =>
+        setGood(good + 1)
+        
+    const setBadraiting = () =>
+        setBad(bad + 1)
+        
+    const setNeutralraiting = () =>
+        setNeutral(neutral + 1)
+
+
+    return (
+        <div>
+            <Display text={'give feedback'} />
+            <Button clickfunc={setGoodraiting} text={'good'} />
+            <Button clickfunc={setBadraiting} text={'bad'} />
+            <Button clickfunc={setNeutralraiting} text={'neutral'} />
+            
+            <Display text={'statistics'} />
+            <Display text={'good :'} value={good} />
+            <Display text={'neutral :'} value={neutral} />
+            <Display text={'bad : '} value={bad} />
+        </div>
+
+        
+        
+    )
+}
+
+export default App
